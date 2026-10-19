@@ -1,4 +1,4 @@
-# Report IA
+# Topreport
 
 Proyecto de práctica con skills de Codex para revisar blogs sobre inteligencia artificial, resumir noticias y mantener informes temáticos en una página HTML compartida.
 
@@ -24,3 +24,4 @@ Proyecto de práctica con skills de Codex para revisar blogs sobre inteligencia 
 - `blogs-por-revisar.md` guarda blogs candidatos para evaluar si encajan en el proyecto.
 - El repositorio es `jaranax/report-ia`, rama `main`. Cloudflare Pages está conectado a esa rama y publica sus cambios automáticamente.
 - `.wrangler/`, `node_modules/` y los archivos de entorno o credenciales están excluidos del repositorio.
+

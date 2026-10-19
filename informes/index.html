@@ -232,6 +232,12 @@
       reportLink.className = 'report-link';
       reportLink.href = `#${report.id}`;
       reportLink.textContent = `Ver informe relacionado: ${reportTitle}`;
+      reportLink.addEventListener('click', event => {
+        event.preventDefault();
+        setView('reports');
+        history.replaceState(null, '', `#${report.id}`);
+        document.getElementById(report.id).scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'start'});
+      });
       card.append(reportLink);
       newsItems.push({ card, timestamp: dateMatch && month !== undefined ? Date.UTC(year, month, day) : 0 });
     }

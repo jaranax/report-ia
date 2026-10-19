@@ -49,12 +49,49 @@
       <option value="todas">Todas las categorías</option>
       <option value="pymes">Pymes y negocio</option>
       <option value="agentes">Agentes de IA</option>
+      <option value="modelos">Modelos de IA</option>
+      <option value="operaciones">Operaciones de IA</option>
       <option value="seguridad">Seguridad</option>
     </select>
-    <span id="result-count" aria-live="polite">2 informes</span>
+    <span id="result-count" aria-live="polite">3 informes</span>
   </div>
 
   <section id="reports" aria-label="Informes ordenados por fecha">
+    <article class="report" data-date="2026-10-19" data-categories="agentes modelos operaciones">
+      <p class="date">Última actualización: 19 de octubre de 2026 · Hacker News · Periodo revisado: 13–19 de octubre</p>
+      <h2>Capacidades y límites de agentes y modelos de IA</h2>
+      <span class="category">Agentes de IA</span>
+      <span class="category">Modelos de IA</span>
+      <span class="category">Operaciones de IA</span>
+      <p class="summary"><strong>Resumen:</strong> las tres piezas muestran facetas distintas: una investigación propone hacer más eficiente el razonamiento de agentes, un experimento personal explora dónde fallan los modelos al programar y una opinión defiende registrar mejor su uso. Los resultados de la investigación son afirmaciones de sus autores; las otras dos piezas no son estudios independientes.</p>
+
+      <section class="story">
+        <h3>Agentes que alternan razonamiento interno y acciones en texto</h3>
+        <p class="story-meta">13 de octubre de 2026 · <a href="https://arxiv.org/html/2610.18861v1" target="_blank" rel="noopener noreferrer">Investigación original en arXiv</a> · Encontrada en <a href="https://news.ycombinator.com/" target="_blank" rel="noopener noreferrer">Hacker News</a></p>
+        <p>El trabajo presenta HybridAgent, un sistema que alterna entre procesar información en un formato interno del modelo y escribir texto para interactuar con herramientas. Sus autores lo probaron en 11 pruebas de matemáticas, ciencia, medicina, búsqueda y tareas con agentes. Informan de una mejora media del 10,4 %, entre un 35,5 % y un 54,7 % menos de tokens y una inferencia entre 1,8 y 2,6 veces más rápida frente a los métodos comparados.</p>
+        <p><strong>Qué enseña:</strong> hay diseños que podrían mejorar la eficiencia sin quitar al agente la capacidad de usar herramientas. Son resultados publicados por los autores de un preprint, no una validación independiente ni una garantía de mejora en cualquier tarea.</p>
+      </section>
+
+      <section class="story">
+        <h3>Un lenguaje de programación creado para poner a prueba a los modelos</h3>
+        <p class="story-meta">17 de octubre de 2026 · <a href="https://blog.picheta.me/post/killswitch-lang/" target="_blank" rel="noopener noreferrer">Experimento y artículo original de Dominik Picheta</a> · Encontrado en <a href="https://news.ycombinator.com/" target="_blank" rel="noopener noreferrer">Hacker News</a></p>
+        <p>El autor diseñó KillSwitch, un lenguaje experimental con reglas poco habituales y trampas deliberadas para confundir a modelos y agentes de programación. En sus pruebas, el mejor resultado que reporta fue 66,8 puntos, pero advierte que las tareas eran sencillas y que los resultados no demuestran claramente que los modelos comprendieran el lenguaje.</p>
+        <p><strong>Qué enseña:</strong> las reglas nuevas o deliberadamente confusas pueden ser un punto débil para los modelos. Como es un experimento ideado por su propio autor y con pruebas limitadas, no permite concluir que los modelos fallen de la misma manera en la programación habitual.</p>
+      </section>
+
+      <section class="story">
+        <h3>La propuesta de registrar mejor las llamadas a modelos de IA</h3>
+        <p class="story-meta">18 de octubre de 2026 · <a href="https://jrdsgl.com/if-you-dont-run-your-own-llm-proxy-how-the-fuck-do-you-even-know-whats-going-on/" target="_blank" rel="noopener noreferrer">Artículo de opinión original de jrdsgl</a> · Encontrado en <a href="https://news.ycombinator.com/" target="_blank" rel="noopener noreferrer">Hacker News</a></p>
+        <p>El autor sostiene que un intermediario propio entre las aplicaciones y los proveedores de modelos puede ayudar a registrar qué cliente usó qué modelo, cuándo y con qué resultado, además de gestionar claves virtuales y cambiar de proveedor. Es una recomendación basada en su experiencia y preferencias técnicas, no una comparación medida entre equipos. Mantener ese intermediario también añade infraestructura que alguien debe operar.</p>
+        <p><strong>Qué enseña:</strong> los equipos pueden necesitar más visibilidad sobre el uso de sus modelos, especialmente cuando sus agentes acceden a herramientas. La solución adecuada depende de cuánto control se necesite y de quién pueda mantenerla.</p>
+      </section>
+
+      <aside class="conclusion" aria-label="Conclusión del informe">
+        <h3>Conclusión del informe</h3>
+        <p>Las mejoras de diseño pueden hacer que un agente use menos recursos y las pruebas específicas ayudan a descubrir fallos, pero ninguna de estas tres piezas demuestra que un agente sea fiable en todos los entornos. Para valorar una aplicación concreta, conviene probar sus tareas reales, revisar qué puede hacer y registrar lo necesario para entender sus acciones. Las cifras de rendimiento proceden de un preprint; las otras fuentes son un experimento personal y una opinión técnica.</p>
+      </aside>
+    </article>
+
     <article class="report" data-date="2026-10-19" data-categories="pymes seguridad">
       <p class="date">Última actualización: 19 de octubre de 2026 · Telefónica Tech · Periodo revisado: 20 de septiembre–19 de octubre</p>
       <h2>Aplicación de la IA en pymes</h2>

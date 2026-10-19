@@ -15,6 +15,11 @@
     .eyebrow { margin:0; color:#a9c7ed; font-size:.78rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
     h1 { margin:8px 0; font-size:clamp(2rem,5vw,3rem); line-height:1.15; }
     .toolbar { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin:22px 0; padding:16px 18px; background:#fff; border:1px solid var(--line); border-radius:12px; }
+    .view-switch { display:flex; gap:5px; padding:4px; border-radius:9px; background:#eaf0f5; }
+    .view-button { padding:8px 13px; border:0; border-radius:6px; background:transparent; color:var(--ink); font:inherit; font-weight:700; cursor:pointer; }
+    .view-button[aria-pressed="true"] { background:#102a43; color:#fff; }
+    :focus-visible { outline:3px solid #3478c7; outline-offset:3px; }
+    .filter-controls { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
     label { font-weight:700; }
     select { min-width:220px; padding:9px 34px 9px 12px; border:1px solid #8999a8; border-radius:8px; background:#fff; color:var(--ink); font:inherit; }
     #result-count { color:var(--muted); font-size:.92rem; }
@@ -29,10 +34,15 @@
     .story { margin-top:20px; padding-top:16px; border-top:1px solid var(--line); }
     .story h3 { margin:4px 0; font-size:1.15rem; }
     .story-meta { color:var(--muted); font-size:.9rem; }
+    .news-view-intro { margin:0 0 16px; color:var(--muted); }
+    .news-card { margin:14px 0; padding:22px 24px; background:#fff; border:1px solid var(--line); border-left:4px solid #3478c7; border-radius:10px; }
+    .news-card h2 { margin:8px 0; font-size:1.28rem; line-height:1.35; }
+    .news-card p:last-of-type { margin-bottom:0; }
+    .report-link { display:inline-block; margin-top:14px; font-size:.93rem; font-weight:700; }
     a { color:var(--blue); text-underline-offset:3px; }
     footer { margin:28px 4px; color:var(--muted); font-size:.9rem; }
     [hidden] { display:none !important; }
-    @media(max-width:600px) { main{margin:18px auto} header,.report{padding:20px} select{width:100%} }
+    @media(max-width:600px) { main{margin:18px auto} header,.report,.news-card{padding:20px} select{width:100%} .view-switch{width:100%} .view-button{flex:1} }
   </style>
 </head>
 <body>
@@ -44,20 +54,27 @@
   </header>
 
   <div class="toolbar">
-    <label for="category-filter">Filtrar por categoría</label>
-    <select id="category-filter">
-      <option value="todas">Todas las categorías</option>
-      <option value="pymes">Pymes y negocio</option>
-      <option value="agentes">Agentes de IA</option>
-      <option value="modelos">Modelos de IA</option>
-      <option value="operaciones">Operaciones de IA</option>
-      <option value="seguridad">Seguridad</option>
-    </select>
+    <div class="view-switch" role="group" aria-label="Tipo de contenido">
+      <button class="view-button" type="button" data-view="reports" aria-pressed="true">Informes</button>
+      <button class="view-button" type="button" data-view="news" aria-pressed="false">Noticias</button>
+    </div>
+    <div class="filter-controls" id="report-filters">
+      <label for="category-filter">Filtrar informes por categoría</label>
+      <select id="category-filter">
+        <option value="todas">Todas las categorías</option>
+        <option value="pymes">Pymes y negocio</option>
+        <option value="agentes">Agentes de IA</option>
+        <option value="modelos">Modelos de IA</option>
+        <option value="operaciones">Operaciones de IA</option>
+        <option value="seguridad">Seguridad</option>
+      </select>
+    </div>
     <span id="result-count" aria-live="polite">3 informes</span>
   </div>
 
+  <div id="reports-view">
   <section id="reports" aria-label="Informes ordenados por fecha">
-    <article class="report" data-date="2026-10-19" data-categories="agentes modelos operaciones">
+    <article class="report" id="informe-capacidades-agentes" data-date="2026-10-19" data-categories="agentes modelos operaciones">
       <p class="date">Última actualización: 19 de octubre de 2026 · Hacker News · Periodo revisado: 13–19 de octubre</p>
       <h2>Capacidades y límites de agentes y modelos de IA</h2>
       <span class="category">Agentes de IA</span>
@@ -92,7 +109,7 @@
       </aside>
     </article>
 
-    <article class="report" data-date="2026-10-19" data-categories="pymes seguridad">
+    <article class="report" id="informe-ia-pymes" data-date="2026-10-19" data-categories="pymes seguridad">
       <p class="date">Última actualización: 19 de octubre de 2026 · Telefónica Tech · Periodo revisado: 20 de septiembre–19 de octubre</p>
       <h2>Aplicación de la IA en pymes</h2>
       <span class="category">Pymes y negocio</span>
@@ -127,7 +144,7 @@
       </aside>
     </article>
 
-    <article class="report" data-date="2026-10-19" data-categories="agentes seguridad">
+    <article class="report" id="informe-autonomia-seguridad" data-date="2026-10-19" data-categories="agentes seguridad">
       <p class="date">Última actualización: 19 de octubre de 2026 · Xataka, The Batch y RuntimeWire · Periodo revisado: 15–19 de octubre</p>
       <h2>Agentes de IA: autonomía y seguridad</h2>
       <span class="category">Agentes de IA</span>
@@ -174,6 +191,12 @@
       </aside>
     </article>
   </section>
+  </div>
+
+  <section id="news-view" hidden aria-label="Noticias individuales ordenadas por fecha">
+    <p class="news-view-intro">Resúmenes individuales de las noticias incluidas en los informes, de la más reciente a la más antigua.</p>
+    <div id="news-list"></div>
+  </section>
 
   <footer>Las explicaciones son paráfrasis de las fuentes enlazadas. Se atribuyen las afirmaciones a sus autores y se señalan las conclusiones prácticas como síntesis.</footer>
 </main>
@@ -181,15 +204,67 @@
   const filter = document.getElementById('category-filter');
   const reports = [...document.querySelectorAll('.report')];
   const count = document.getElementById('result-count');
+  const reportFilters = document.getElementById('report-filters');
+  const reportsView = document.getElementById('reports-view');
+  const newsView = document.getElementById('news-view');
+  const newsList = document.getElementById('news-list');
+  const viewButtons = [...document.querySelectorAll('[data-view]')];
+
+  const months = { enero:0, febrero:1, marzo:2, abril:3, mayo:4, junio:5, julio:6, agosto:7, septiembre:8, octubre:9, noviembre:10, diciembre:11 };
+  const newsItems = [];
+  for (const report of reports) {
+    const reportTitle = report.querySelector('h2').textContent.trim();
+    for (const story of report.querySelectorAll(':scope > .story')) {
+      const meta = story.querySelector('.story-meta');
+      const dateMatch = meta?.textContent.match(/^\s*(\d{1,2}) de ([a-záéíóú]+) de (\d{4})/i);
+      const day = dateMatch ? Number(dateMatch[1]) : 1;
+      const month = dateMatch ? months[dateMatch[2].toLowerCase()] : 0;
+      const year = dateMatch ? Number(dateMatch[3]) : 0;
+      const card = document.createElement('article');
+      card.className = 'news-card';
+      card.dataset.date = dateMatch && month !== undefined ? `${year}-${String(month + 1).padStart(2,'0')}-${String(day).padStart(2,'0')}` : '0000-00-00';
+      const title = document.createElement('h2');
+      title.textContent = story.querySelector('h3').textContent.trim();
+      card.append(title);
+      if (meta) card.append(meta.cloneNode(true));
+      for (const paragraph of story.querySelectorAll(':scope > p:not(.story-meta)')) card.append(paragraph.cloneNode(true));
+      const reportLink = document.createElement('a');
+      reportLink.className = 'report-link';
+      reportLink.href = `#${report.id}`;
+      reportLink.textContent = `Ver informe relacionado: ${reportTitle}`;
+      card.append(reportLink);
+      newsItems.push({ card, timestamp: dateMatch && month !== undefined ? Date.UTC(year, month, day) : 0 });
+    }
+  }
+  newsItems.sort((a,b) => b.timestamp - a.timestamp);
+  for (const item of newsItems) newsList.append(item.card);
+
+  function setView(view) {
+    const showReports = view === 'reports';
+    reportsView.hidden = !showReports;
+    newsView.hidden = showReports;
+    reportFilters.hidden = !showReports;
+    for (const button of viewButtons) button.setAttribute('aria-pressed', String(button.dataset.view === view));
+    updateCount();
+  }
+
+  function updateCount() {
+    if (newsView.hidden) {
+      const visibleReports = reports.filter(report => !report.hidden).length;
+      count.textContent = `${visibleReports} ${visibleReports === 1 ? 'informe' : 'informes'}`;
+    } else {
+      count.textContent = `${newsItems.length} ${newsItems.length === 1 ? 'noticia' : 'noticias'}`;
+    }
+  }
+
+  for (const button of viewButtons) button.addEventListener('click', () => setView(button.dataset.view));
   filter.addEventListener('change', () => {
-    let visible = 0;
     for (const report of reports) {
       const categories = report.dataset.categories.split(' ');
       const show = filter.value === 'todas' || categories.includes(filter.value);
       report.hidden = !show;
-      if (show) visible++;
     }
-    count.textContent = `${visible} ${visible === 1 ? 'informe' : 'informes'}`;
+    updateCount();
   });
 </script>
 </body>

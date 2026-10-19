@@ -137,12 +137,12 @@
   <div id="reports-view">
   <section id="reports" aria-label="Informes ordenados por fecha">
     <article class="report" id="informe-capacidades-agentes" data-date="2026-10-19" data-categories="agentes modelos operaciones">
-      <p class="date">Última actualización: 19 de octubre de 2026 · Hacker News · Periodo revisado: 13–19 de octubre</p>
+      <p class="date">Última actualización: 19 de octubre de 2026 · Hacker News y Geoffrey Huntley · Periodo revisado: 13–19 de octubre</p>
       <h2>Capacidades y límites de agentes y modelos de IA</h2>
       <span class="category">Agentes de IA</span>
       <span class="category">Modelos de IA</span>
       <span class="category">Operaciones de IA</span>
-      <p class="summary"><strong>Resumen:</strong> las tres piezas muestran facetas distintas: una investigación propone hacer más eficiente el razonamiento de agentes, un experimento personal explora dónde fallan los modelos al programar y una opinión defiende registrar mejor su uso. Los resultados de la investigación son afirmaciones de sus autores; las otras dos piezas no son estudios independientes.</p>
+      <p class="summary"><strong>Resumen:</strong> las cinco piezas muestran facetas distintas: una investigación propone hacer más eficiente el razonamiento de agentes; dos experimentos personales describen límites de modelos y soluciones para operar agentes; y dos artículos de opinión plantean cómo mejorar la supervisión y la verificación. Solo la primera pieza presenta resultados comparativos de una investigación; las demás son experiencias y propuestas de sus autores.</p>
 
       <section class="story" data-category="Agentes de IA" data-image="https://raw.githubusercontent.com/jaranax/report-ia/main/informes/images/ai-agent-tools.jpg" data-image-alt="Ilustración conceptual de un agente de IA que alterna entre razonamiento y herramientas externas.">
         <h3>Agentes que alternan razonamiento interno y acciones en texto</h3>
@@ -165,9 +165,23 @@
         <p class="takeaway"><strong>Qué enseña:</strong> los equipos pueden necesitar más visibilidad sobre el uso de sus modelos, especialmente cuando sus agentes acceden a herramientas. La solución adecuada depende de cuánto control se necesite y de quién pueda mantenerla.</p>
       </section>
 
+      <section class="story" data-category="Operaciones de IA" data-image="https://storage.ghost.io/c/06/e5/06e5d12b-0328-469d-a0d0-3a0f0ba34c46/content/images/size/w1200/2026/10/Traditional-tattoo-art-print-from-a-bird---s-eye-view--depicting-pooled-OpenAI-subscriptions-as-a-collaborative-network-overcoming-regional-inference-limits.-Interwoven-streams-of-glowing-data-form-a-swirling-ornamental-tapestry--with-each-.jpg" data-image-alt="Ilustración editorial de Geoffrey Huntley sobre agrupar suscripciones y enrutar solicitudes de IA entre regiones.">
+        <h3>Un conjunto de herramientas para gestionar límites, capacidad y datos enviados a modelos</h3>
+        <p class="story-meta">17 de octubre de 2026 · <a href="https://ghuntley.com/underclass/" target="_blank" rel="noopener noreferrer">Artículo original de Geoffrey Huntley</a></p>
+        <p>Huntley describe tres proyectos propios: Underclass agrupa varias suscripciones de ChatGPT y gestiona sus límites; Preflight actúa como intermediario local que busca y elimina secretos antes de enviar solicitudes a un modelo; y GeoClass, un prototipo experimental, intenta redirigir peticiones entre regiones cuando hay errores de capacidad. El autor dice que aún no sabe si el enrutamiento geográfico resolverá sus problemas, así que esa parte es una prueba en curso, no un resultado demostrado.</p>
+        <p class="takeaway"><strong>Qué enseña:</strong> cuando los agentes dependen de servicios externos, su funcionamiento también puede verse afectado por cuotas, capacidad y privacidad. Las herramientas intermedias pueden ayudar a gestionar esos problemas, pero añaden componentes que hay que configurar y mantener.</p>
+      </section>
+
+      <section class="story" data-category="Agentes de IA" data-image="https://storage.ghost.io/c/06/e5/06e5d12b-0328-469d-a0d0-3a0f0ba34c46/content/images/size/w1200/2026/10/Symbolic-traditional-tattoo-art-print-on-a-white-background--a-solitary-figure-hunched-over-an-old-computer--soft-screen-light-revealing-a-tired-expression-and-worn-keyboard.-Dreamy-hazy-brushwork--natural-earth-tones-of-brown-and-beige--mu.jpg" data-image-alt="Ilustración editorial de Geoffrey Huntley sobre el trabajo de programación con agentes de IA.">
+        <h3>En el desarrollo con agentes, el reto pasa a ser definir y verificar el trabajo</h3>
+        <p class="story-meta">13 de octubre de 2026 · <a href="https://ghuntley.com/agency/" target="_blank" rel="noopener noreferrer">Artículo original de Geoffrey Huntley</a></p>
+        <p>Al resumir una conversación sobre programación con agentes, Huntley sostiene que generar código ya no es el principal cuello de botella en muchos de sus proyectos. Destaca otras tareas: tener una idea clara del resultado, comprobar que la implementación está completa y poner el sistema a prueba. El artículo recoge su experiencia y opiniones sobre el futuro del desarrollo, no una medición independiente de productividad ni una predicción segura sobre todos los equipos.</p>
+        <p class="takeaway"><strong>Qué enseña:</strong> delegar la escritura de código no elimina el trabajo de ingeniería. Hace más importante especificar qué se quiere construir y comprobar con pruebas que el resultado funciona y está completo.</p>
+      </section>
+
       <aside class="conclusion" aria-label="Conclusión del informe">
         <h3>Conclusión del informe</h3>
-        <p>Las mejoras de diseño pueden hacer que un agente use menos recursos y las pruebas específicas ayudan a descubrir fallos, pero ninguna de estas tres piezas demuestra que un agente sea fiable en todos los entornos. Para valorar una aplicación concreta, conviene probar sus tareas reales, revisar qué puede hacer y registrar lo necesario para entender sus acciones. Las cifras de rendimiento proceden de un preprint; las otras fuentes son un experimento personal y una opinión técnica.</p>
+        <p>Las cinco piezas apuntan a que hacer útiles y fiables los agentes exige más que elegir un modelo: también importa diseñar cómo razonan y usan herramientas, comprobar sus resultados y gestionar límites de capacidad, permisos y datos sensibles. Las soluciones descritas por Geoffrey Huntley y los otros autores son experiencias, propuestas o prototipos, no garantías generales. Para una aplicación concreta, conviene probar tareas reales, limitar accesos y verificar tanto el resultado como los recursos externos de los que depende.</p>
       </aside>
     </article>
 
@@ -362,3 +376,4 @@
 </script>
 </body>
 </html>
+

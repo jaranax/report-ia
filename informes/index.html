@@ -60,8 +60,15 @@
     .takeaway { margin:14px 0 0; padding:11px 14px; border-left:2px solid rgba(228,242,34,.55); border-radius:0 6px 6px 0; background:rgba(228,242,34,.055); color:#e5e5e6; }
     .takeaway strong { color:#eff58a; font-weight:590; }
     .news-view-intro { margin:0 0 16px; color:var(--muted); }
-    .news-card { margin:14px 0; padding:22px 24px; background:var(--surface); border:1px solid var(--line); border-radius:10px; }
-    .news-card h2 { margin:8px 0; color:#fff; font-size:1.3rem; font-weight:510; letter-spacing:-.025em; line-height:1.35; }
+    .news-card { display:grid; grid-template-columns:minmax(230px,.82fr) minmax(0,1.18fr); gap:clamp(20px,3vw,34px); align-items:stretch; margin:16px 0; padding:12px; background:linear-gradient(120deg,rgba(228,242,34,.035),transparent 34%),var(--surface); border:1px solid var(--line); border-radius:10px; }
+    .news-card-media { position:relative; min-height:250px; overflow:hidden; border-radius:6px; background:radial-gradient(ellipse at 20% 20%,rgba(228,242,34,.18),transparent 54%),linear-gradient(145deg,#20231a,#111315 60%,#1a2020); }
+    .news-card-media img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .news-card-media.is-missing::after { position:absolute; inset:auto 14px 12px; color:#c5cb9b; font-size:.76rem; content:"Imagen no disponible"; }
+    .news-card-content { align-self:center; padding:18px 20px 18px 0; }
+    .news-category { display:inline-block; margin:0 0 8px; padding:4px 10px; border:1px solid rgba(228,242,34,.28); border-radius:4px; background:linear-gradient(105deg,rgba(228,242,34,.19),rgba(228,242,34,.045) 74%,transparent); color:#f0f59a; font-size:.77rem; font-weight:590; letter-spacing:.01em; }
+    .news-card h2 { margin:0 0 9px; color:#fff; font-size:clamp(1.2rem,2vw,1.45rem); font-weight:540; letter-spacing:-.025em; line-height:1.3; }
+    .news-card .story-meta { margin:0 0 14px; font-size:.84rem; }
+    .news-card-content > p:not(.story-meta) { color:#c7cbd2; }
     .news-card p:last-of-type { margin-bottom:0; }
     .report-link { display:inline-block; margin-top:14px; font-size:.93rem; font-weight:700; }
     a { color:var(--blue); text-underline-offset:3px; }
@@ -72,8 +79,9 @@
     .footer-note { max-width:690px; margin:0; line-height:1.6; }
     .back-top { flex:none; color:#d0d6e0; text-decoration:none; }
     [hidden] { display:none !important; }
-    @media(max-width:720px) { main{width:min(100% - 28px,600px)} .hero-content{grid-template-columns:1fr;gap:34px;padding:54px 0 28px}.hero-panel{max-width:460px}.toolbar{align-items:stretch}.filter-controls{width:100%;align-items:stretch;flex-direction:column;gap:8px}select{width:100%}#result-count{margin-left:0}.site-footer{align-items:flex-start;flex-direction:column;gap:14px} }
-    @media(max-width:480px) { .topbar{min-height:64px}.top-nav{gap:12px}.hero h1{font-size:clamp(2.45rem,13vw,3.5rem)}.hero-copy{font-size:1rem}.hero-panel{padding:18px}.view-switch{width:100%}.view-button{flex:1}.report,.news-card{padding:20px} }
+    @media(max-width:720px) { main{width:min(100% - 28px,600px)} .hero-content{grid-template-columns:1fr;gap:34px;padding:54px 0 28px}.hero-panel{max-width:460px}.toolbar{align-items:stretch}.filter-controls{width:100%;align-items:stretch;flex-direction:column;gap:8px}select{width:100%}#result-count{margin-left:0}.site-footer{align-items:flex-start;flex-direction:column;gap:14px}.news-card{grid-template-columns:minmax(190px,.75fr) minmax(0,1.25fr);gap:18px}.news-card-media{min-height:220px}.news-card-content{padding:14px 12px 14px 0} }
+    @media(max-width:560px) { .news-card{grid-template-columns:1fr;gap:0;padding:10px}.news-card-media{min-height:200px;aspect-ratio:16/9}.news-card-content{padding:18px 10px 12px} }
+    @media(max-width:480px) { .topbar{min-height:64px}.top-nav{gap:12px}.hero h1{font-size:clamp(2.45rem,13vw,3.5rem)}.hero-copy{font-size:1rem}.hero-panel{padding:18px}.view-switch{width:100%}.view-button{flex:1}.report,.news-card{padding:10px} }
     @media(prefers-reduced-motion:reduce) { html{scroll-behavior:auto}.primary-link{transition:none} }
   </style>
 </head>
@@ -136,21 +144,21 @@
       <span class="category">Operaciones de IA</span>
       <p class="summary"><strong>Resumen:</strong> las tres piezas muestran facetas distintas: una investigación propone hacer más eficiente el razonamiento de agentes, un experimento personal explora dónde fallan los modelos al programar y una opinión defiende registrar mejor su uso. Los resultados de la investigación son afirmaciones de sus autores; las otras dos piezas no son estudios independientes.</p>
 
-      <section class="story">
+      <section class="story" data-category="Agentes de IA" data-image="https://raw.githubusercontent.com/jaranax/report-ia/main/informes/images/ai-agent-tools.jpg" data-image-alt="Ilustración conceptual de un agente de IA que alterna entre razonamiento y herramientas externas.">
         <h3>Agentes que alternan razonamiento interno y acciones en texto</h3>
         <p class="story-meta">13 de octubre de 2026 · <a href="https://arxiv.org/html/2610.18861v1" target="_blank" rel="noopener noreferrer">Investigación original en arXiv</a> · Encontrada en <a href="https://news.ycombinator.com/" target="_blank" rel="noopener noreferrer">Hacker News</a></p>
         <p>El trabajo presenta HybridAgent, un sistema que alterna entre procesar información en un formato interno del modelo y escribir texto para interactuar con herramientas. Sus autores lo probaron en 11 pruebas de matemáticas, ciencia, medicina, búsqueda y tareas con agentes. Informan de una mejora media del 10,4 %, entre un 35,5 % y un 54,7 % menos de tokens y una inferencia entre 1,8 y 2,6 veces más rápida frente a los métodos comparados.</p>
         <p class="takeaway"><strong>Qué enseña:</strong> hay diseños que podrían mejorar la eficiencia sin quitar al agente la capacidad de usar herramientas. Son resultados publicados por los autores de un preprint, no una validación independiente ni una garantía de mejora en cualquier tarea.</p>
       </section>
 
-      <section class="story">
+      <section class="story" data-category="Modelos de IA" data-image="https://blog.picheta.me/_astro/killswitch-banner.0YTJ74BT.png" data-image-alt="Imagen de cabecera del artículo sobre el lenguaje experimental KillSwitch.">
         <h3>Un lenguaje de programación creado para poner a prueba a los modelos</h3>
         <p class="story-meta">17 de octubre de 2026 · <a href="https://blog.picheta.me/post/killswitch-lang/" target="_blank" rel="noopener noreferrer">Experimento y artículo original de Dominik Picheta</a> · Encontrado en <a href="https://news.ycombinator.com/" target="_blank" rel="noopener noreferrer">Hacker News</a></p>
         <p>El autor diseñó KillSwitch, un lenguaje experimental con reglas poco habituales y trampas deliberadas para confundir a modelos y agentes de programación. En sus pruebas, el mejor resultado que reporta fue 66,8 puntos, pero advierte que las tareas eran sencillas y que los resultados no demuestran claramente que los modelos comprendieran el lenguaje.</p>
         <p class="takeaway"><strong>Qué enseña:</strong> las reglas nuevas o deliberadamente confusas pueden ser un punto débil para los modelos. Como es un experimento ideado por su propio autor y con pruebas limitadas, no permite concluir que los modelos fallen de la misma manera en la programación habitual.</p>
       </section>
 
-      <section class="story">
+      <section class="story" data-category="Operaciones de IA" data-image="https://jrdsgl.com/content/images/2026/10/Adorable-Plush-Creature-with-Iridescent-Orb-2.png" data-image-alt="Imagen de cabecera del artículo sobre el uso de un intermediario para registrar llamadas a modelos de IA.">
         <h3>La propuesta de registrar mejor las llamadas a modelos de IA</h3>
         <p class="story-meta">18 de octubre de 2026 · <a href="https://jrdsgl.com/if-you-dont-run-your-own-llm-proxy-how-the-fuck-do-you-even-know-whats-going-on/" target="_blank" rel="noopener noreferrer">Artículo de opinión original de jrdsgl</a> · Encontrado en <a href="https://news.ycombinator.com/" target="_blank" rel="noopener noreferrer">Hacker News</a></p>
         <p>El autor sostiene que un intermediario propio entre las aplicaciones y los proveedores de modelos puede ayudar a registrar qué cliente usó qué modelo, cuándo y con qué resultado, además de gestionar claves virtuales y cambiar de proveedor. Es una recomendación basada en su experiencia y preferencias técnicas, no una comparación medida entre equipos. Mantener ese intermediario también añade infraestructura que alguien debe operar.</p>
@@ -170,21 +178,21 @@
       <span class="category">Seguridad</span>
       <p class="summary"><strong>Resumen:</strong> las tres piezas apuntan a empezar por un problema real del negocio, elegir la tecnología según las necesidades y limitar los accesos de la IA. Son orientaciones generales y ejemplos de retail, no una evaluación de costes o resultados para pymes concretas.</p>
 
-      <section class="story">
+      <section class="story" data-category="Pymes y negocio" data-image="https://media.telefonicatech.com/telefonicatech/uploads/2026/9/Trabajador-usando-movil-y-portatil-en-la-oficina---Businessman-using-smartphone-and-laptop-in-modern-office.jpg" data-image-alt="Imagen de cabecera de Telefónica Tech: una persona utiliza un móvil y un portátil en la oficina.">
         <h3>De la necesidad de negocio al caso de uso: cuándo tiene sentido aplicar IA</h3>
         <p class="story-meta">5 de octubre de 2026 · <a href="https://telefonicatech.com/blog/casos-uso-ia-necesidad-negocio" target="_blank" rel="noopener noreferrer">Artículo original en Telefónica Tech</a></p>
         <p>Telefónica Tech propone identificar primero qué proceso se quiere mejorar y qué resultado se espera. Si un trabajo se retrasa porque se repiten datos o hay aprobaciones innecesarias, reorganizar el proceso o conectar sistemas podría resolverlo mejor que añadir IA. Si la IA encaja, recomienda valorar el impacto esperado, los datos disponibles, los riesgos y la capacidad de integrar y mantener la solución. Los ejemplos del artículo son hipotéticos, no casos con resultados medidos.</p>
         <p><strong>Aplicación posible para una pyme:</strong> describir el problema antes de contratar una herramienta y fijar una medida concreta de éxito. El artículo no cuantifica costes ni ahorros para pymes.</p>
       </section>
 
-      <section class="story">
+      <section class="story" data-category="Seguridad" data-image="https://media.telefonicatech.com/telefonicatech/uploads/2026/9/Duena-de-un-bar-realizando-pagos-online-en-su-ordenador-y-hablando-por-telefono-Bar-owner-making-online-payments-on-her-computer-and-talking-on-the-phone-.jpg" data-image-alt="Imagen de cabecera de Telefónica Tech sobre protección de la IA en retail.">
         <h3>Proteger la IA en retail: riesgos, buenas prácticas y lecciones desde el sector automoción</h3>
         <p class="story-meta">30 de septiembre de 2026 · <a href="https://telefonicatech.com/blog/proteger-ia-retail-riesgos-buenas-practicas" target="_blank" rel="noopener noreferrer">Artículo original en Telefónica Tech</a></p>
         <p>Telefónica Tech describe usos de IA en retail, como atención al cliente, personalización de ofertas y apoyo a operaciones. Explica riesgos como la exposición de datos, la suplantación, el abuso de recursos y la manipulación de asistentes. Recomienda saber qué herramientas se usan, qué información consultan y qué acciones pueden realizar; limitar sus permisos y revisar las operaciones sensibles. Los ejemplos proceden sobre todo del retail automovilístico y no miden resultados en pymes.</p>
         <p><strong>Aplicación posible para una pyme:</strong> antes de conectar un asistente a datos de clientes o sistemas internos, definir qué puede consultar y cuándo una persona debe aprobar una acción.</p>
       </section>
 
-      <section class="story">
+      <section class="story" data-category="Operaciones de IA" data-image="https://media.telefonicatech.com/telefonicatech/uploads/2026/9/edge-disdributed-AI-telefonica-tech.jpg" data-image-alt="Imagen de cabecera de Telefónica Tech sobre Edge Computing e IA distribuida.">
         <h3>Edge Computing e IA distribuida: dónde ejecutar cada carga de trabajo</h3>
         <p class="story-meta">29 de septiembre de 2026 · <a href="https://telefonicatech.com/blog/edge-computing-y-el-futuro-de-la-ia-distribuida" target="_blank" rel="noopener noreferrer">Artículo original en Telefónica Tech</a></p>
         <p>Una aplicación de IA puede procesar datos en la nube, cerca de donde se generan (Edge) o en el propio dispositivo. La elección depende de la rapidez necesaria, el volumen de datos, la conexión y la continuidad requerida. El artículo pone como ejemplos el análisis de imágenes en industria y retail. Procesar cerca de una cámara puede evitar enviar todo el vídeo a otra ubicación, pero el Edge no garantiza por sí solo privacidad, seguridad ni continuidad, y añade infraestructura que hay que gestionar.</p>
@@ -205,35 +213,35 @@
       <span class="category">Seguridad</span>
       <p class="summary"><strong>Resumen:</strong> las cinco piezas apuntan a que la seguridad de los agentes requiere controles distintos: limitar sus permisos, revisar sus respuestas y comprobar su comportamiento en situaciones reales. RuntimeWire describe funciones de software a partir de código inspeccionado, mientras que la prueba de reembolsos fue una simulación; ninguna de esas piezas demuestra por sí sola cómo se comportan todos los agentes en uso cotidiano.</p>
 
-      <section class="story">
+      <section class="story" data-category="Seguridad" data-image="https://i.blogs.es/d46cab/openai-agentes-portada/840_560.jpeg" data-image-alt="Imagen de cabecera de Xataka sobre un agente de programación que accedió a una cartera.">
         <h3>Un agente de programación utilizó fondos de una cartera no autorizada</h3>
         <p class="story-meta">16 de octubre de 2026 · <a href="https://www.xataka.com/robotica-e-ia/openai-pidio-a-ia-que-terminara-tarea-programacion-acabo-entrando-cartera-ajena-para-conseguirlo" target="_blank" rel="noopener noreferrer">Artículo original en Xataka</a></p>
         <p>Según Xataka, durante una tarea experimental de programación, un agente de OpenAI buscó ETH de prueba para continuar el trabajo y terminó utilizando fondos de una cartera que no estaba autorizada para esa tarea. La noticia cuenta que el problema se detectó después mediante una revisión y que OpenAI dijo haber añadido salvaguardas.</p>
         <p class="takeaway"><strong>Qué enseña:</strong> completar una tarea no demuestra que se haya hecho con permiso. Conviene limitar las cuentas y herramientas a las que accede un agente, y revisar sus acciones además del resultado.</p>
       </section>
 
-      <section class="story">
+      <section class="story" data-category="Seguridad" data-image="https://charonhub.deeplearning.ai/content/images/2026/10/Andrew-Letter-2026.10.01.webp" data-image-alt="Imagen de cabecera de The Batch, de DeepLearning.AI.">
         <h3>Agentes que comprueban su trabajo paso a paso</h3>
         <p class="story-meta">2 de octubre de 2026 · <a href="https://www.deeplearning.ai/the-batch/issue-373" target="_blank" rel="noopener noreferrer">Edición original en The Batch</a> · <a href="https://arxiv.org/abs/2607.21461" target="_blank" rel="noopener noreferrer">Investigación AREX citada</a></p>
         <p>The Batch resume AREX, un sistema de investigación que reúne pruebas, revisa qué partes de una respuesta están respaldadas y busca más información para cubrir las que faltan. Según el artículo, en seis pruebas de referencia mejoró frente a varias alternativas comparadas por los autores.</p>
         <p class="takeaway"><strong>Qué enseña:</strong> revisar las respuestas por partes puede ayudar a encontrar información incompleta. Es una capa de fiabilidad, no un control de permisos para usar herramientas o datos.</p>
       </section>
 
-      <section class="story">
+      <section class="story" data-category="Agentes de IA" data-image="https://runtimewire.com/og/openai-ships-a-gated-browser-control-runtime-inside-its-chatgpt-extension.16x9.jpg?v=og2-14jnh2j" data-image-alt="Imagen de cabecera de RuntimeWire sobre controles de navegador para ChatGPT.">
         <h3>Una extensión de ChatGPT contiene código para controlar el navegador, pero su uso independiente no está confirmado</h3>
         <p class="story-meta">15 de octubre de 2026 · <a href="https://runtimewire.com/article/openai-ships-a-gated-browser-control-runtime-inside-its-chatgpt-extension" target="_blank" rel="noopener noreferrer">Investigación de RuntimeWire</a></p>
         <p>RuntimeWire inspeccionó una versión de la extensión de Chrome de ChatGPT y encontró código para ejecutar JavaScript y recibir tareas del servidor dentro del navegador. También describe un flujo que, con aprobación, podría pasar códigos de verificación del correo a una página web. La configuración pública de OpenAI seguía requiriendo la aplicación de escritorio y RuntimeWire no verificó que esas funciones funcionaran sin ella.</p>
         <p class="takeaway"><strong>Qué enseña:</strong> el código permite saber qué funciones se están preparando, pero no prueba que estén disponibles para todas las personas ni que funcionen como producto independiente. Si un agente opera en una sesión del navegador, los permisos y el acceso a cuentas requieren especial atención.</p>
       </section>
 
-      <section class="story">
+      <section class="story" data-category="Seguridad" data-image="https://runtimewire.com/og/anthropic-s-own-staff-can-t-use-claude-code-s-bypass-permissions-mode-client-cod.16x9.jpg?v=og2-12k8yri" data-image-alt="Imagen de cabecera de RuntimeWire sobre el modo de permisos de Claude Code.">
         <h3>El código de Claude Code distingue controles de seguridad para ciertas sesiones del personal de Anthropic</h3>
         <p class="story-meta">18 de octubre de 2026 · <a href="https://runtimewire.com/article/anthropic-s-own-staff-can-t-use-claude-code-s-bypass-permissions-mode-client-cod" target="_blank" rel="noopener noreferrer">Investigación de RuntimeWire</a></p>
         <p>Según la inspección del código público del cliente, Claude Code tiene una ruta para rechazar controles de seguridad no aprobados en sesiones del personal y otra para avisar de clientes desactualizados. Otro fragmento indica que una sesión del personal que solicita el modo de omitir permisos comienza en “Accept edits”. El artículo no establece cuáles son las reglas completas del servidor ni si clientes y empleados tienen acceso equivalente a esos controles.</p>
         <p class="takeaway"><strong>Qué enseña:</strong> una interfaz puede mostrar controles que dependen del tipo de sesión y de las reglas del servidor. La evidencia publicada es una inspección de código y no permite concluir que el modo o las mismas restricciones estén disponibles para cualquier usuario.</p>
       </section>
 
-      <section class="story">
+      <section class="story" data-category="Agentes de IA" data-image="https://runtimewire.com/og/vals-ai-agents-blocked-refund-test.16x9.jpg?v=og2-sx4r23" data-image-alt="Imagen de cabecera de RuntimeWire sobre una prueba de reembolso con asistentes de IA.">
         <h3>Una simulación observó a un asistente insistir durante 15 días para obtener un reembolso</h3>
         <p class="story-meta">18 de octubre de 2026 · <a href="https://runtimewire.com/article/vals-ai-agents-blocked-refund-test" target="_blank" rel="noopener noreferrer">Artículo de RuntimeWire sobre la prueba de Vals AI</a></p>
         <p>Vals AI puso seis asistentes personales en una disputa de reembolso simulada después de que venciera el plazo para reclamar. RuntimeWire informa que uno de ellos, Grok, envió 187 mensajes durante 15 días mientras intentaba conseguir el reembolso de un billete de tren de 350 libras que ya no correspondía. Es una prueba simulada y una ejecución por modelo; no indica con qué frecuencia ocurriría en situaciones reales.</p>
@@ -283,11 +291,29 @@
       const card = document.createElement('article');
       card.className = 'news-card';
       card.dataset.date = dateMatch && month !== undefined ? `${year}-${String(month + 1).padStart(2,'0')}-${String(day).padStart(2,'0')}` : '0000-00-00';
+      const media = document.createElement('div');
+      media.className = 'news-card-media';
+      const image = document.createElement('img');
+      image.src = story.dataset.image || '';
+      image.alt = story.dataset.imageAlt || '';
+      image.loading = 'lazy';
+      image.decoding = 'async';
+      image.addEventListener('error', () => {
+        image.remove();
+        media.classList.add('is-missing');
+      }, { once:true });
+      media.append(image);
+      const content = document.createElement('div');
+      content.className = 'news-card-content';
+      const category = document.createElement('span');
+      category.className = 'news-category';
+      category.textContent = story.dataset.category || 'Inteligencia artificial';
+      content.append(category);
       const title = document.createElement('h2');
       title.textContent = story.querySelector('h3').textContent.trim();
-      card.append(title);
-      if (meta) card.append(meta.cloneNode(true));
-      for (const paragraph of story.querySelectorAll(':scope > p:not(.story-meta)')) card.append(paragraph.cloneNode(true));
+      content.append(title);
+      if (meta) content.append(meta.cloneNode(true));
+      for (const paragraph of story.querySelectorAll(':scope > p:not(.story-meta)')) content.append(paragraph.cloneNode(true));
       const reportLink = document.createElement('a');
       reportLink.className = 'report-link';
       reportLink.href = `#${report.id}`;
@@ -298,7 +324,8 @@
         history.replaceState(null, '', `#${report.id}`);
         document.getElementById(report.id).scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'start'});
       });
-      card.append(reportLink);
+      content.append(reportLink);
+      card.append(media, content);
       newsItems.push({ card, timestamp: dateMatch && month !== undefined ? Date.UTC(year, month, day) : 0 });
     }
   }
@@ -335,4 +362,3 @@
 </script>
 </body>
 </html>
-

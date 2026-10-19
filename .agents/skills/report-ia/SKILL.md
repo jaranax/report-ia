@@ -23,6 +23,7 @@ Si falta la URL del blog o el tema y no se pueden inferir con claridad del encar
 2. Selecciona hasta el límite indicado por blog que traten directamente el tema. Comprueba la fecha y abre cada artículo seleccionado para leer suficiente contenido para resumirlo. No elijas un artículo solo por coincidir una palabra del título.
 3. Crea o actualiza informes/index.html. Mantén un informe acumulativo por tema: si ya existe uno sobre el mismo tema, añade las noticias nuevas que cumplan los criterios, sin duplicar artículos, y actualiza su resumen, conclusión, periodo cubierto y fecha de última actualización. No crees un informe separado por cada noticia ni por cada nueva revisión del mismo tema. Si el tema es distinto, crea otro informe. Ordena los informes por fecha de última actualización, de más reciente a más antigua.
 4. Asigna a cada informe una o varias categorías temáticas breves. Reutiliza categorías existentes cuando encajen y añade un filtro visible para mostrar todos los informes o filtrar por categoría. El filtro debe funcionar en la propia página, sin servicios externos.
+5. Para cada noticia, añade a su sección de origen los datos `data-category`, `data-image` y `data-image-alt`. La vista Noticias los usa para mostrar una tarjeta con imagen a la izquierda y categoría, título y resumen a la derecha. La categoría describe la noticia; reutiliza una categoría existente cuando encaje. No hagas que toda la tarjeta sea un enlace o desplegable.
 
 ## Contenido del informe
 
@@ -30,6 +31,7 @@ Si falta la URL del blog o el tema y no se pueden inferir con claridad del encar
 - Una sección por noticia con título enlazado al original, blog, fecha y explicación breve en términos cotidianos.
 - Una conclusión general, breve y visualmente destacada, que conecte las noticias y esté respaldada por ellas. Si las noticias no permiten sostener una conclusión común, indícalo claramente y no fuerces una.
 - Categorías del informe y un control para filtrar por categoría.
+- Imagen en la tarjeta individual de cada noticia: primero busca la imagen principal o `og:image` del artículo original y enlázala directamente; escribe un texto alternativo descriptivo. Si no hay una imagen editorial apropiada, genera una ilustración conceptual, guárdala en `informes/images/` y márcala como ilustración en su texto alternativo. No la presentes como fotografía del hecho. Si una imagen no carga, deja la tarjeta legible y muestra el estado de imagen no disponible.
 - Diseño legible en móvil y escritorio, con CSS y el comportamiento del filtro incluidos en el mismo HTML.
 
 Si informes/index.html aún no existe, créala con el primer informe. Si ya existe, lee su estructura: actualiza el informe del mismo tema o añade uno nuevo si el tema es distinto. Conserva las noticias anteriores y los demás informes. Si hay informes previos como archivos HTML independientes, incorpóralos a la página compartida cuando su contenido esté disponible y sea verificable; conserva esos archivos originales.
@@ -37,4 +39,3 @@ Si informes/index.html aún no existe, créala con el primer informe. Si ya exis
 Atribuye a cada blog sus afirmaciones y separa los hechos que el artículo reporta de la opinión editorial y de las conclusiones de síntesis. No inventes fechas, detalles, resultados ni contexto. Si no puedes abrir o verificar un artículo, exclúyelo o indica claramente la limitación; no rellenes los huecos. Si no encuentras artículos suficientes, informa cuántos encontraste en vez de completar el cupo con noticias poco relacionadas.
 
 Esta skill mantiene la página para revisión local. No la publica, no la envía y no hace cambios en GitHub; esas acciones pertenecen a un flujo separado.
-

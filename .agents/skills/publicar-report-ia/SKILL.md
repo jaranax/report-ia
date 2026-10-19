@@ -5,18 +5,16 @@ description: Use cuando un informe nuevo de Report IA ya está añadido a inform
 
 # Publicar informes de Report IA
 
-Prepara y publica en GitHub y Cloudflare Pages la página compartida de informes después de añadir un informe. La skill `report-ia` redacta y actualiza el HTML; esta skill verifica ese cambio, lo registra en GitHub mediante el conector disponible y publica la página con Wrangler. No requiere un repositorio Git local.
+Prepara y publica en GitHub la página compartida de informes después de añadir o actualizar un informe. La skill `report-ia` redacta y actualiza el HTML; esta skill revisa el cambio, registra únicamente `informes/index.html` en la rama `main` y comprueba que la integración Git de Cloudflare Pages publique automáticamente el commit.
 
 ## Configuración inicial, una sola vez
 
-La persona usuaria autorizó crear un repositorio público de GitHub llamado `report-ia` y un proyecto Cloudflare Pages llamado `report-ia`, además de usar Wrangler. Completa esta preparación cuando estén disponibles las conexiones de cuenta:
+Configuración ya comprobada para este proyecto:
 
-1. Comprueba que la raíz del proyecto es la carpeta correcta y que no hay archivos secretos o privados que deban excluirse del repositorio público. No publiques credenciales, tokens, archivos de configuración local ni datos personales.
-2. Crea el repositorio público `report-ia` en la cuenta GitHub autorizada, si todavía no existe. La configuración inicial sube el proyecto, sus skills y los informes existentes a la rama `main`. Excluye `.wrangler/`, credenciales, tokens, archivos `.env` y cachés locales.
-3. Crea el proyecto Pages `report-ia` en Cloudflare, si todavía no existe. La cuenta ya puede autenticarse mediante Wrangler. En la versión comprobada `4.151.1`, el comando de creación directo que funcionó fue `npx --yes wrangler@4.151.1 pages project create report-ia --production-branch main --force`. Usa `--force` solo para esta creación inicial cuando Wrangler muestre el aviso que redirige la creación de Pages al flujo de Workers; no lo uses en despliegues posteriores.
-4. Completa una vez la autenticación inicial de GitHub y Cloudflare si la herramienta la solicita. No solicites una autorización nueva para cada informe.
-
-Si no puedes completar una conexión de cuenta, indica qué inicio de sesión falta y conserva el resto de la preparación ya realizada.
+- Repositorio público de GitHub: `jaranax/report-ia`, rama `main`.
+- Proyecto Cloudflare Pages: `report-ia`, conectado a `jaranax/report-ia`; despliegues automáticos habilitados para `main`.
+- Configuración de compilación: `mkdir -p dist && cp informes/index.html dist/index.html`, salida `dist`.
+- La conexión Git de Pages ya generó y publicó automáticamente el commit `b82fca09350d410caa996662c91946779b702d6c`. No hace falta crear otro proyecto ni configurar Wrangler.
 
 ## En cada informe
 
@@ -24,18 +22,19 @@ Si no puedes completar una conexión de cuenta, indica qué inicio de sesión fa
 2. Abre `informes/index.html` en el navegador y comprueba que se ve el informe recién añadido, que siguen apareciendo los informes anteriores y que los filtros de categoría funcionan. Si no puedes comprobarlo o encuentras un fallo, detente antes de publicar e informa del resultado.
 3. Comprueba en el repositorio remoto el contenido actual de `informes/index.html`. Confirma que el archivo local incluye el informe nuevo, conserva los informes anteriores y no contiene información privada. No modifiques archivos ajenos a este informe.
 4. Si el contenido local no cambia respecto al del repositorio, no crees un commit. Si está correcto, actualiza únicamente `informes/index.html` mediante el conector de GitHub, usando su SHA actual y un mensaje breve. No uses escrituras forzadas ni borres historial. Confirma el SHA del commit.
-5. Prepara un directorio temporal que contenga únicamente `informes/index.html`, con el nombre `index.html`. Así los informes antiguos independientes no se publican como páginas separadas.
-6. Despliega con `npx --yes wrangler@4.151.1 pages deploy <directorio-temporal> --project-name report-ia --branch main`. Si Wrangler no está disponible, usa `npx`; no añadas Wrangler como dependencia del proyecto. No uses `--force` al desplegar. Si pide iniciar sesión, completa la renovación técnica de acceso sin pedir aprobación para publicar.
-7. Comprueba que el despliegue terminó correctamente y que `https://report-ia.pages.dev/` responde con HTTP 200 y muestra el informe actualizado. Comunica el commit de GitHub y la URL publicada. Si Cloudflare falla tras el push, deja constancia de que GitHub sí se actualizó y explica el error exacto de Cloudflare.
+5. Espera al flujo automático de Pages iniciado por el commit. No ejecutes Wrangler ni crees una implementación manual para el mismo cambio. La configuración de compilación copia el HTML a `dist/index.html`; no prepares otro directorio temporal.
+6. Comprueba en Cloudflare Pages que hay una implementación de producción para `main` asociada al SHA recién creado. Si el estado está en curso, espera antes de concluir. Si la API de Cloudflare da un error de autenticación, usa el panel de Cloudflare si hay una sesión ya iniciada.
+7. Abre `https://report-ia.pages.dev/` y confirma que muestra el informe actualizado. Si solo funciona la URL única del despliegue o la publicación falla, indica cuál comprobación pasó y el error concreto; no inicies una segunda publicación por Wrangler.
 
 ## Límites
 
-- La autorización de la persona usuaria para publicar Report IA es permanente para futuras actualizaciones del proyecto. Después de cada informe nuevo o actualizado, realiza la revisión, el commit y el push de `informes/index.html` y despliega la página en Cloudflare Pages, siempre que las comprobaciones de este flujo pasen. No vuelvas a pedir aprobación para cada publicación.
-- La autorización permanente cubre únicamente la página de informes y su despliegue. No cubre cambios a otros archivos, gastos, cambios de dominio, cambios de visibilidad del repositorio ni cambios de configuración de GitHub o Cloudflare.
+- La persona usuaria autorizó de forma permanente los cambios normales necesarios en cualquier archivo de este proyecto y su actualización en el repositorio público `jaranax/report-ia`, rama `main`. Realiza los commits y pushes del trabajo solicitado sin pedir confirmación por cada archivo o actualización.
+- Esta autorización cubre las actualizaciones rutinarias del contenido, los informes, las skills y las funciones del proyecto. Mantén cada commit acotado al trabajo solicitado y no incluyas secretos, credenciales ni datos privados.
+- La autorización no incluye borrar o hacer privado/público el repositorio, cambiar dominios o ajustes de cuenta, modificar la configuración de GitHub o Cloudflare, ni asumir gastos. Para esas acciones, pregunta antes.
 - La autorización para configurar inicialmente el repositorio público `report-ia` en GitHub y el proyecto Pages `report-ia` en Cloudflare se concedió en esta conversación. No crees otros repositorios o proyectos.
-- Para este proyecto, la autorización explícita de Wrangler en esta conversación sustituye el método de publicación indicado por la skill global de Cloudflare Pages. Mantén esta excepción limitada a Report IA.
+- No uses Wrangler para Report IA mientras la conexión Git y los despliegues automáticos estén habilitados. Si esa configuración cambia, verifica el nuevo método antes de publicar y actualiza esta skill.
 - La autenticación inicial o renovación de las conexiones de GitHub y Cloudflare puede requerir que la persona usuaria complete un paso de inicio de sesión. Eso es un requisito técnico de acceso, no una aprobación para cada actualización.
-- La autorización permanente permite revisar, hacer commit, subir a GitHub y desplegar `informes/index.html` en cada informe. No cubre cambios de dominio, gastos, visibilidad del repositorio ni cambios de configuración que no estén descritos arriba.
+- Cloudflare Pages publica automáticamente al recibir cambios en `main`. La configuración actual vigila `*`, por lo que otros cambios del repositorio también pueden iniciar una compilación; la web solo cambia si esos cambios alteran los archivos copiados al directorio `dist`.
 - Si el repositorio, rama o contenido remoto muestran una situación distinta de la esperada, detente y describe el hallazgo; no adivines cómo resolverlo.
 - Subir a GitHub no confirma por sí solo que Cloudflare haya terminado de publicar la página. Si Cloudflare Pages está conectado al repositorio, puede iniciar una publicación tras el push; comunica ese resultado solo si se ha comprobado.
 

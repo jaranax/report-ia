@@ -138,13 +138,20 @@
 
   <div id="reports-view">
   <section id="reports" aria-label="Informes ordenados por fecha">
-    <article class="report" id="informe-capacidades-agentes" data-date="2026-10-19" data-categories="agentes modelos operaciones">
-      <p class="date">Última actualización: 19 de octubre de 2026 · Hacker News y Geoffrey Huntley · Periodo revisado: 13–19 de octubre</p>
+    <article class="report" id="informe-capacidades-agentes" data-date="2026-10-20" data-categories="agentes modelos operaciones">
+      <p class="date">Última actualización: 20 de octubre de 2026 · arXiv, Dominik Picheta, jrdsgl, Geoffrey Huntley y RuntimeWire; documentación de Unsloth · Periodo cubierto: 13–20 de octubre · Revisión diaria: últimas 48 horas</p>
       <h2>Capacidades y límites de agentes y modelos de IA</h2>
       <span class="category">Agentes de IA</span>
       <span class="category">Modelos de IA</span>
       <span class="category">Operaciones de IA</span>
-      <p class="summary"><strong>Resumen:</strong> las cinco piezas muestran facetas distintas: una investigación propone hacer más eficiente el razonamiento de agentes; dos experimentos personales describen límites de modelos y soluciones para operar agentes; y dos artículos de opinión plantean cómo mejorar la supervisión y la verificación. Solo la primera pieza presenta resultados comparativos de una investigación; las demás son experiencias y propuestas de sus autores.</p>
+      <p class="summary"><strong>Resumen:</strong> las seis piezas reúnen una investigación sobre razonamiento de agentes, experimentos y opiniones sobre sus límites y operación, y una novedad sobre modelos locales. RuntimeWire informa de una versión comprimida de DeepSeek; la guía de Unsloth permite precisar sus requisitos y qué mide el 88,2 % anunciado. Los resultados proceden de sus autores y no equivalen a validaciones independientes.</p>
+
+      <section class="story" data-category="Modelos de IA" data-image="https://runtimewire.com/og/unsloth-deepseek-v4-1-flash-1017-local-gguf.16x9.jpg?v=og2-1d6snib" data-image-alt="Ilustración generada por IA de RuntimeWire para su noticia sobre DeepSeek comprimido y ejecución local.">
+        <h3>Unsloth reduce el espacio de DeepSeek para ejecutarlo en local, con límites que conviene medir</h3>
+        <p class="story-meta">20 de octubre de 2026 · <a href="https://runtimewire.com/article/unsloth-deepseek-v4-1-flash-1017-local-gguf" target="_blank" rel="noopener noreferrer">Artículo original de RuntimeWire</a> · <a href="https://unsloth.ai/docs/models/deepseek-v4.1-flash" target="_blank" rel="noopener noreferrer">Guía y mediciones de Unsloth</a> · Publicado a las 01:18 UTC del día 20, aún día 19 en la zona horaria del medio.</p>
+        <p>RuntimeWire recoge el lanzamiento de una versión comprimida de DeepSeek V4.1-Flash-1017 para ejecutarlo en equipos propios. La guía de Unsloth sitúa la variante UD-IQ1_M en 250,4 GB de disco, frente a 508,4 GB de su versión de 8 bits. El 88,2 % anunciado mide cuántas veces coincide el token más probable con el modelo de referencia en el conjunto long17k; en wiki1100 es un 87,1 %. No significa que conserve ese porcentaje de aciertos en cualquier tarea.</p>
+        <p class="takeaway"><strong>Qué enseña:</strong> reducir el archivo facilita el uso local, pero no elimina los requisitos de hardware. Unsloth estima entre 128 y 145 GB de memoria para sus variantes de 1 bit, con parte de los datos en SSD; el contexto y la ejecución pueden exigir más. Son mediciones del desarrollador de la compresión, que también promociona sus herramientas. Antes de adoptarla, hay que comprobar calidad y velocidad con tareas propias.</p>
+      </section>
 
       <section class="story" data-category="Agentes de IA" data-image="https://raw.githubusercontent.com/jaranax/report-ia/main/informes/images/ai-agent-tools.jpg" data-image-alt="Ilustración conceptual de un agente de IA que alterna entre razonamiento y herramientas externas.">
         <h3>Agentes que alternan razonamiento interno y acciones en texto</h3>
@@ -183,7 +190,7 @@
 
       <aside class="conclusion" aria-label="Conclusión del informe">
         <h3>Conclusión del informe</h3>
-        <p>Las cinco piezas apuntan a que hacer útiles y fiables los agentes exige más que elegir un modelo: también importa diseñar cómo razonan y usan herramientas, comprobar sus resultados y gestionar límites de capacidad, permisos y datos sensibles. Las soluciones descritas por Geoffrey Huntley y los otros autores son experiencias, propuestas o prototipos, no garantías generales. Para una aplicación concreta, conviene probar tareas reales, limitar accesos y verificar tanto el resultado como los recursos externos de los que depende.</p>
+        <p>Las piezas anteriores respaldan que operar agentes exige diseñar su trabajo, verificar resultados y gestionar accesos y capacidad. La nueva noticia añade un asunto distinto: el equilibrio entre compresión, memoria y calidad al ejecutar un modelo local. No hay una única conclusión técnica común demostrada por las seis piezas. Como criterio práctico de síntesis, conviene evaluar cada propuesta con tareas reales y medir sus recursos; ni una opinión, ni un prototipo, ni la coincidencia de tokens garantizan por sí solos un resultado útil.</p>
       </aside>
     </article>
 
@@ -378,4 +385,3 @@
 </script>
 </body>
 </html>
-

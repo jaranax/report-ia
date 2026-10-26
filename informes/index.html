@@ -139,6 +139,76 @@
 
   <div id="reports-view">
   <section id="reports" aria-label="Informes ordenados por fecha">
+    <article class="report" id="informe-capacidades-agentes" data-date="2026-10-26" data-categories="agentes modelos operaciones">
+      <p class="date">Última actualización: 26 de octubre de 2026 · arXiv, Dominik Picheta, jrdsgl, Geoffrey Huntley y RuntimeWire; documentación de Unsloth, comunicado de Moonshot y cobertura de Reuters · Periodo cubierto: 13–25 de octubre · Revisión diaria: últimas 48 horas</p>
+      <h2>Capacidades y límites de agentes y modelos de IA</h2>
+      <span class="category">Agentes de IA</span>
+      <span class="category">Modelos de IA</span>
+      <span class="category">Operaciones de IA</span>
+      <p class="summary"><strong>Resumen:</strong> ocho piezas sobre capacidades, límites y operación de modelos y agentes. Moonshot añade una reposición parcial de cuota y ajustes anunciados para Kimi tras problemas de uso: no hay aquí una medición independiente de su efecto. Las piezas anteriores reúnen investigación sobre razonamiento, experimentos y opiniones, requisitos de modelos locales y la experiencia de aplicar un parche con un agente. Cada resultado debe interpretarse según sus pruebas y su fuente.</p>
+
+      <section class="story" data-category="Operaciones de IA" data-image="https://www.reuters.com/resizer/v2/BFXPBB2DM5PZVITHEQW7JU6IWU.jpg?auth=3b667d4b43d7c9694ddd4f689b9ff0bfd2e10dbcfdeea6743bf70916092dd071&amp;height=1005&amp;width=1920&amp;quality=80&amp;smart=true" data-image-alt="Ilustración de archivo del logotipo de Moonshot AI, de Dado Ruvic para Reuters, fechada el 5 de septiembre de 2026; no representa el incidente.">
+        <h3>Moonshot repone parte de la cuota de Kimi y anuncia ajustes para reducir consumo innecesario</h3>
+        <p class="story-meta">25 de octubre de 2026 · <a href="https://x.com/Kimi_Moonshot/status/2114450610724708492" target="_blank" rel="noopener noreferrer">Comunicado original de Kimi, publicado a las 20:14 UTC</a> · <a href="https://www.reuters.com/world/asia-pacific/moonshot-resets-subscriber-quotas-after-kimi-k31-pro-launch-issues-2026-10-26/" target="_blank" rel="noopener noreferrer">Cobertura de Reuters del 26 de octubre</a> · Descubierto en <a href="https://runtimewire.com/article/moonshot-kimi-quota-reset-k31-pro-launch" target="_blank" rel="noopener noreferrer">RuntimeWire, del 26 de octubre</a>; acceso parcial al medio y lectura completa del comunicado y de Reuters.</p>
+        <p>Moonshot reconoce problemas de límites y consumo innecesario en la suscripción de K3.1 Pro. Anuncia una reposición única equivalente al 25 % de la cuota mensual para todos los suscriptores; si el uso acumulado era inferior al 25 %, lo devuelve a cero. También afirma que ha ajustado parámetros y está reduciendo llamadas innecesarias a subagentes y la longitud de las respuestas. Son medidas comunicadas por el proveedor, sin una prueba independiente de cuánto ahorran ni de su efecto en la calidad.</p>
+        <p class="takeaway"><strong>Qué enseña:</strong> evaluar un agente también exige observar cuánta cuota consume y cuándo limita el trabajo. Como criterio práctico, conviene comprobar consumo y resultado con tareas propias antes de depender de los ajustes anunciados.</p>
+      </section>
+
+      <section class="story" data-category="Operaciones de IA" data-image="https://storage.ghost.io/c/06/e5/06e5d12b-0328-469d-a0d0-3a0f0ba34c46/content/images/size/w1200/2026/10/Symbolic-traditional-tattoo-art-print-showing-hackers-patching-a-planet-beneath-stormy-skies--vibrant-yet-soft-pastel-colors--intricate-retro-ornamental-details--intense-dramatic-weather--high-tension-composition-balanced-by-a-gentle-soothi.jpg" data-image-alt="Ilustración editorial de Geoffrey Huntley sobre aplicar parches con agentes de IA.">
+        <h3>Huntley describe cómo un agente le ayudó a aplicar un parche y a documentar su retirada</h3>
+        <p class="story-meta">20 de octubre de 2026 · <a href="https://ghuntley.com/patch/" target="_blank" rel="noopener noreferrer">Experiencia original de Geoffrey Huntley</a></p>
+        <p>Huntley cuenta que pidió a un agente revisar si su infraestructura Nix estaba afectada por un incidente con certificados de eMudhra y que esa consulta acabó en un plan y un parche. También muestra una nota en AGENTS.md que pide comprobar más adelante si la corrección oficial ya está incorporada, retirar entonces la solución temporal y verificar el resultado. Es el relato del autor sobre su propia infraestructura, sin mediciones independientes de tiempo, coste o cobertura.</p>
+        <p class="takeaway"><strong>Qué enseña:</strong> documentar por qué existe un parche temporal y qué debe comprobarse antes de retirarlo puede ayudar al mantenimiento. Una nota en AGENTS.md solo se atenderá cuando un agente vuelva a ejecutarse y la lea; el artículo no demuestra que esa nota programe por sí sola una ejecución futura ni que la retirada ya haya ocurrido.</p>
+      </section>
+
+      <section class="story" data-category="Modelos de IA" data-image="https://runtimewire.com/og/unsloth-deepseek-v4-1-flash-1017-local-gguf.16x9.jpg?v=og2-1d6snib" data-image-alt="Ilustración generada por IA de RuntimeWire para su noticia sobre DeepSeek comprimido y ejecución local.">
+        <h3>Unsloth reduce el espacio de DeepSeek para ejecutarlo en local, con límites que conviene medir</h3>
+        <p class="story-meta">20 de octubre de 2026 · <a href="https://runtimewire.com/article/unsloth-deepseek-v4-1-flash-1017-local-gguf" target="_blank" rel="noopener noreferrer">Artículo original de RuntimeWire</a> · <a href="https://unsloth.ai/docs/models/deepseek-v4.1-flash" target="_blank" rel="noopener noreferrer">Guía y mediciones de Unsloth</a> · Publicado a las 01:18 UTC del día 20, aún día 19 en la zona horaria del medio.</p>
+        <p>RuntimeWire recoge el lanzamiento de una versión comprimida de DeepSeek V4.1-Flash-1017 para ejecutarlo en equipos propios. La guía de Unsloth sitúa la variante UD-IQ1_M en 250,4 GB de disco, frente a 508,4 GB de su versión de 8 bits. El 88,2 % anunciado mide cuántas veces coincide el token más probable con el modelo de referencia en el conjunto long17k; en wiki1100 es un 87,1 %. No significa que conserve ese porcentaje de aciertos en cualquier tarea.</p>
+        <p class="takeaway"><strong>Qué enseña:</strong> reducir el archivo facilita el uso local, pero no elimina los requisitos de hardware. Unsloth estima entre 128 y 145 GB de memoria para sus variantes de 1 bit, con parte de los datos en SSD; el contexto y la ejecución pueden exigir más. Son mediciones del desarrollador de la compresión, que también promociona sus herramientas. Antes de adoptarla, hay que comprobar calidad y velocidad con tareas propias.</p>
+      </section>
+
+      <section class="story" data-category="Agentes de IA" data-image="https://raw.githubusercontent.com/jaranax/report-ia/main/informes/images/ai-agent-tools.jpg" data-image-alt="Ilustración conceptual de un agente de IA que alterna entre razonamiento y herramientas externas.">
+        <h3>Agentes que alternan razonamiento interno y acciones en texto</h3>
+        <p class="story-meta">13 de octubre de 2026 · <a href="https://arxiv.org/html/2610.18861v1" target="_blank" rel="noopener noreferrer">Investigación original en arXiv</a> · Encontrada en <a href="https://news.ycombinator.com/" target="_blank" rel="noopener noreferrer">Hacker News</a></p>
+        <p>El trabajo presenta HybridAgent, un sistema que alterna entre procesar información en un formato interno del modelo y escribir texto para interactuar con herramientas. Sus autores lo probaron en 11 pruebas de matemáticas, ciencia, medicina, búsqueda y tareas con agentes. Informan de una mejora media del 10,4 %, entre un 35,5 % y un 54,7 % menos de tokens y una inferencia entre 1,8 y 2,6 veces más rápida frente a los métodos comparados.</p>
+        <p class="takeaway"><strong>Qué enseña:</strong> hay diseños que podrían mejorar la eficiencia sin quitar al agente la capacidad de usar herramientas. Son resultados publicados por los autores de un preprint, no una validación independiente ni una garantía de mejora en cualquier tarea.</p>
+      </section>
+
+      <section class="story" data-category="Modelos de IA" data-image="https://blog.picheta.me/_astro/killswitch-banner.0YTJ74BT.png" data-image-alt="Imagen de cabecera del artículo sobre el lenguaje experimental KillSwitch.">
+        <h3>Un lenguaje de programación creado para poner a prueba a los modelos</h3>
+        <p class="story-meta">17 de octubre de 2026 · <a href="https://blog.picheta.me/post/killswitch-lang/" target="_blank" rel="noopener noreferrer">Experimento y artículo original de Dominik Picheta</a> · Encontrado en <a href="https://news.ycombinator.com/" target="_blank" rel="noopener noreferrer">Hacker News</a></p>
+        <p>El autor diseñó KillSwitch, un lenguaje experimental con reglas poco habituales y trampas deliberadas para confundir a modelos y agentes de programación. En sus pruebas, el mejor resultado que reporta fue 66,8 puntos, pero advierte que las tareas eran sencillas y que los resultados no demuestran claramente que los modelos comprendieran el lenguaje.</p>
+        <p class="takeaway"><strong>Qué enseña:</strong> las reglas nuevas o deliberadamente confusas pueden ser un punto débil para los modelos. Como es un experimento ideado por su propio autor y con pruebas limitadas, no permite concluir que los modelos fallen de la misma manera en la programación habitual.</p>
+      </section>
+
+      <section class="story" data-category="Operaciones de IA" data-image="https://jrdsgl.com/content/images/2026/10/Adorable-Plush-Creature-with-Iridescent-Orb-2.png" data-image-alt="Imagen de cabecera del artículo sobre el uso de un intermediario para registrar llamadas a modelos de IA.">
+        <h3>La propuesta de registrar mejor las llamadas a modelos de IA</h3>
+        <p class="story-meta">18 de octubre de 2026 · <a href="https://jrdsgl.com/if-you-dont-run-your-own-llm-proxy-how-the-fuck-do-you-even-know-whats-going-on/" target="_blank" rel="noopener noreferrer">Artículo de opinión original de jrdsgl</a> · Encontrado en <a href="https://news.ycombinator.com/" target="_blank" rel="noopener noreferrer">Hacker News</a></p>
+        <p>El autor sostiene que un intermediario propio entre las aplicaciones y los proveedores de modelos puede ayudar a registrar qué cliente usó qué modelo, cuándo y con qué resultado, además de gestionar claves virtuales y cambiar de proveedor. Es una recomendación basada en su experiencia y preferencias técnicas, no una comparación medida entre equipos. Mantener ese intermediario también añade infraestructura que alguien debe operar.</p>
+        <p class="takeaway"><strong>Qué enseña:</strong> los equipos pueden necesitar más visibilidad sobre el uso de sus modelos, especialmente cuando sus agentes acceden a herramientas. La solución adecuada depende de cuánto control se necesite y de quién pueda mantenerla.</p>
+      </section>
+
+      <section class="story" data-category="Operaciones de IA" data-image="https://storage.ghost.io/c/06/e5/06e5d12b-0328-469d-a0d0-3a0f0ba34c46/content/images/size/w1200/2026/10/Traditional-tattoo-art-print-from-a-bird---s-eye-view--depicting-pooled-OpenAI-subscriptions-as-a-collaborative-network-overcoming-regional-inference-limits.-Interwoven-streams-of-glowing-data-form-a-swirling-ornamental-tapestry--with-each-.jpg" data-image-alt="Ilustración editorial de Geoffrey Huntley sobre agrupar suscripciones y enrutar solicitudes de IA entre regiones.">
+        <h3>Un conjunto de herramientas para gestionar límites, capacidad y datos enviados a modelos</h3>
+        <p class="story-meta">17 de octubre de 2026 · <a href="https://ghuntley.com/underclass/" target="_blank" rel="noopener noreferrer">Artículo original de Geoffrey Huntley</a></p>
+        <p>Huntley describe tres proyectos propios: Underclass agrupa varias suscripciones de ChatGPT y gestiona sus límites; Preflight actúa como intermediario local que busca y elimina secretos antes de enviar solicitudes a un modelo; y GeoClass, un prototipo experimental, intenta redirigir peticiones entre regiones cuando hay errores de capacidad. El autor dice que aún no sabe si el enrutamiento geográfico resolverá sus problemas, así que esa parte es una prueba en curso, no un resultado demostrado.</p>
+        <p class="takeaway"><strong>Qué enseña:</strong> cuando los agentes dependen de servicios externos, su funcionamiento también puede verse afectado por cuotas, capacidad y privacidad. Las herramientas intermedias pueden ayudar a gestionar esos problemas, pero añaden componentes que hay que configurar y mantener.</p>
+      </section>
+
+      <section class="story" data-category="Agentes de IA" data-image="https://storage.ghost.io/c/06/e5/06e5d12b-0328-469d-a0d0-3a0f0ba34c46/content/images/size/w1200/2026/10/Symbolic-traditional-tattoo-art-print-on-a-white-background--a-solitary-figure-hunched-over-an-old-computer--soft-screen-light-revealing-a-tired-expression-and-worn-keyboard.-Dreamy-hazy-brushwork--natural-earth-tones-of-brown-and-beige--mu.jpg" data-image-alt="Ilustración editorial de Geoffrey Huntley sobre el trabajo de programación con agentes de IA.">
+        <h3>En el desarrollo con agentes, el reto pasa a ser definir y verificar el trabajo</h3>
+        <p class="story-meta">13 de octubre de 2026 · <a href="https://ghuntley.com/agency/" target="_blank" rel="noopener noreferrer">Artículo original de Geoffrey Huntley</a></p>
+        <p>Al resumir una conversación sobre programación con agentes, Huntley sostiene que generar código ya no es el principal cuello de botella en muchos de sus proyectos. Destaca otras tareas: tener una idea clara del resultado, comprobar que la implementación está completa y poner el sistema a prueba. El artículo recoge su experiencia y opiniones sobre el futuro del desarrollo, no una medición independiente de productividad ni una predicción segura sobre todos los equipos.</p>
+        <p class="takeaway"><strong>Qué enseña:</strong> delegar la escritura de código no elimina el trabajo de ingeniería. Hace más importante especificar qué se quiere construir y comprobar con pruebas que el resultado funciona y está completo.</p>
+      </section>
+
+      <aside class="conclusion" aria-label="Conclusión del informe">
+        <h3>Conclusión del informe</h3>
+        <p>Operar agentes exige diseñar su trabajo, verificar resultados y gestionar accesos y capacidad. El caso de Kimi añade límites de servicio y consumo de cuota, con ajustes anunciados cuyo efecto no se ha medido aquí de forma independiente. Los modelos locales plantean otro equilibrio entre compresión, memoria y calidad; Huntley describe mantenimiento de parches temporales, sin demostrar su retirada automática. No hay una única conclusión técnica común demostrada por las ocho piezas. Como criterio práctico de síntesis, conviene evaluar cada propuesta con tareas reales y medir sus recursos; ni una opinión, ni un prototipo, ni la coincidencia de tokens garantizan por sí solos un resultado útil.</p>
+      </aside>
+    </article>
+
     <article class="report" id="informe-ia-pymes" data-date="2026-10-25" data-categories="empresas pymes operaciones seguridad">
       <p class="date">Última actualización: 25 de octubre de 2026 · Telefónica Tech, RuntimeWire y The Batch; anuncio de Unstructured · Periodo cubierto: 29 de septiembre–23 de octubre · Revisión diaria: últimas 48 horas</p>
       <h2>Aplicaciones de la IA en empresas y organizaciones</h2>
@@ -266,68 +336,7 @@
     </article>
 
 
-    <article class="report" id="informe-capacidades-agentes" data-date="2026-10-21" data-categories="agentes modelos operaciones">
-      <p class="date">Última actualización: 21 de octubre de 2026 · arXiv, Dominik Picheta, jrdsgl, Geoffrey Huntley y RuntimeWire; documentación de Unsloth · Periodo cubierto: 13–20 de octubre · Revisión diaria: últimas 48 horas</p>
-      <h2>Capacidades y límites de agentes y modelos de IA</h2>
-      <span class="category">Agentes de IA</span>
-      <span class="category">Modelos de IA</span>
-      <span class="category">Operaciones de IA</span>
-      <p class="summary"><strong>Resumen:</strong> las siete piezas reúnen una investigación sobre razonamiento de agentes, experimentos y opiniones sobre sus límites y operación, una novedad sobre modelos locales y el relato de un parche aplicado con ayuda de un agente. RuntimeWire informa de una versión comprimida de DeepSeek; la guía de Unsloth permite precisar sus requisitos y qué mide el 88,2 % anunciado. Los resultados proceden de sus autores y no equivalen a validaciones independientes.</p>
 
-      <section class="story" data-category="Operaciones de IA" data-image="https://storage.ghost.io/c/06/e5/06e5d12b-0328-469d-a0d0-3a0f0ba34c46/content/images/size/w1200/2026/10/Symbolic-traditional-tattoo-art-print-showing-hackers-patching-a-planet-beneath-stormy-skies--vibrant-yet-soft-pastel-colors--intricate-retro-ornamental-details--intense-dramatic-weather--high-tension-composition-balanced-by-a-gentle-soothi.jpg" data-image-alt="Ilustración editorial de Geoffrey Huntley sobre aplicar parches con agentes de IA.">
-        <h3>Huntley describe cómo un agente le ayudó a aplicar un parche y a documentar su retirada</h3>
-        <p class="story-meta">20 de octubre de 2026 · <a href="https://ghuntley.com/patch/" target="_blank" rel="noopener noreferrer">Experiencia original de Geoffrey Huntley</a></p>
-        <p>Huntley cuenta que pidió a un agente revisar si su infraestructura Nix estaba afectada por un incidente con certificados de eMudhra y que esa consulta acabó en un plan y un parche. También muestra una nota en AGENTS.md que pide comprobar más adelante si la corrección oficial ya está incorporada, retirar entonces la solución temporal y verificar el resultado. Es el relato del autor sobre su propia infraestructura, sin mediciones independientes de tiempo, coste o cobertura.</p>
-        <p class="takeaway"><strong>Qué enseña:</strong> documentar por qué existe un parche temporal y qué debe comprobarse antes de retirarlo puede ayudar al mantenimiento. Una nota en AGENTS.md solo se atenderá cuando un agente vuelva a ejecutarse y la lea; el artículo no demuestra que esa nota programe por sí sola una ejecución futura ni que la retirada ya haya ocurrido.</p>
-      </section>
-
-      <section class="story" data-category="Modelos de IA" data-image="https://runtimewire.com/og/unsloth-deepseek-v4-1-flash-1017-local-gguf.16x9.jpg?v=og2-1d6snib" data-image-alt="Ilustración generada por IA de RuntimeWire para su noticia sobre DeepSeek comprimido y ejecución local.">
-        <h3>Unsloth reduce el espacio de DeepSeek para ejecutarlo en local, con límites que conviene medir</h3>
-        <p class="story-meta">20 de octubre de 2026 · <a href="https://runtimewire.com/article/unsloth-deepseek-v4-1-flash-1017-local-gguf" target="_blank" rel="noopener noreferrer">Artículo original de RuntimeWire</a> · <a href="https://unsloth.ai/docs/models/deepseek-v4.1-flash" target="_blank" rel="noopener noreferrer">Guía y mediciones de Unsloth</a> · Publicado a las 01:18 UTC del día 20, aún día 19 en la zona horaria del medio.</p>
-        <p>RuntimeWire recoge el lanzamiento de una versión comprimida de DeepSeek V4.1-Flash-1017 para ejecutarlo en equipos propios. La guía de Unsloth sitúa la variante UD-IQ1_M en 250,4 GB de disco, frente a 508,4 GB de su versión de 8 bits. El 88,2 % anunciado mide cuántas veces coincide el token más probable con el modelo de referencia en el conjunto long17k; en wiki1100 es un 87,1 %. No significa que conserve ese porcentaje de aciertos en cualquier tarea.</p>
-        <p class="takeaway"><strong>Qué enseña:</strong> reducir el archivo facilita el uso local, pero no elimina los requisitos de hardware. Unsloth estima entre 128 y 145 GB de memoria para sus variantes de 1 bit, con parte de los datos en SSD; el contexto y la ejecución pueden exigir más. Son mediciones del desarrollador de la compresión, que también promociona sus herramientas. Antes de adoptarla, hay que comprobar calidad y velocidad con tareas propias.</p>
-      </section>
-
-      <section class="story" data-category="Agentes de IA" data-image="https://raw.githubusercontent.com/jaranax/report-ia/main/informes/images/ai-agent-tools.jpg" data-image-alt="Ilustración conceptual de un agente de IA que alterna entre razonamiento y herramientas externas.">
-        <h3>Agentes que alternan razonamiento interno y acciones en texto</h3>
-        <p class="story-meta">13 de octubre de 2026 · <a href="https://arxiv.org/html/2610.18861v1" target="_blank" rel="noopener noreferrer">Investigación original en arXiv</a> · Encontrada en <a href="https://news.ycombinator.com/" target="_blank" rel="noopener noreferrer">Hacker News</a></p>
-        <p>El trabajo presenta HybridAgent, un sistema que alterna entre procesar información en un formato interno del modelo y escribir texto para interactuar con herramientas. Sus autores lo probaron en 11 pruebas de matemáticas, ciencia, medicina, búsqueda y tareas con agentes. Informan de una mejora media del 10,4 %, entre un 35,5 % y un 54,7 % menos de tokens y una inferencia entre 1,8 y 2,6 veces más rápida frente a los métodos comparados.</p>
-        <p class="takeaway"><strong>Qué enseña:</strong> hay diseños que podrían mejorar la eficiencia sin quitar al agente la capacidad de usar herramientas. Son resultados publicados por los autores de un preprint, no una validación independiente ni una garantía de mejora en cualquier tarea.</p>
-      </section>
-
-      <section class="story" data-category="Modelos de IA" data-image="https://blog.picheta.me/_astro/killswitch-banner.0YTJ74BT.png" data-image-alt="Imagen de cabecera del artículo sobre el lenguaje experimental KillSwitch.">
-        <h3>Un lenguaje de programación creado para poner a prueba a los modelos</h3>
-        <p class="story-meta">17 de octubre de 2026 · <a href="https://blog.picheta.me/post/killswitch-lang/" target="_blank" rel="noopener noreferrer">Experimento y artículo original de Dominik Picheta</a> · Encontrado en <a href="https://news.ycombinator.com/" target="_blank" rel="noopener noreferrer">Hacker News</a></p>
-        <p>El autor diseñó KillSwitch, un lenguaje experimental con reglas poco habituales y trampas deliberadas para confundir a modelos y agentes de programación. En sus pruebas, el mejor resultado que reporta fue 66,8 puntos, pero advierte que las tareas eran sencillas y que los resultados no demuestran claramente que los modelos comprendieran el lenguaje.</p>
-        <p class="takeaway"><strong>Qué enseña:</strong> las reglas nuevas o deliberadamente confusas pueden ser un punto débil para los modelos. Como es un experimento ideado por su propio autor y con pruebas limitadas, no permite concluir que los modelos fallen de la misma manera en la programación habitual.</p>
-      </section>
-
-      <section class="story" data-category="Operaciones de IA" data-image="https://jrdsgl.com/content/images/2026/10/Adorable-Plush-Creature-with-Iridescent-Orb-2.png" data-image-alt="Imagen de cabecera del artículo sobre el uso de un intermediario para registrar llamadas a modelos de IA.">
-        <h3>La propuesta de registrar mejor las llamadas a modelos de IA</h3>
-        <p class="story-meta">18 de octubre de 2026 · <a href="https://jrdsgl.com/if-you-dont-run-your-own-llm-proxy-how-the-fuck-do-you-even-know-whats-going-on/" target="_blank" rel="noopener noreferrer">Artículo de opinión original de jrdsgl</a> · Encontrado en <a href="https://news.ycombinator.com/" target="_blank" rel="noopener noreferrer">Hacker News</a></p>
-        <p>El autor sostiene que un intermediario propio entre las aplicaciones y los proveedores de modelos puede ayudar a registrar qué cliente usó qué modelo, cuándo y con qué resultado, además de gestionar claves virtuales y cambiar de proveedor. Es una recomendación basada en su experiencia y preferencias técnicas, no una comparación medida entre equipos. Mantener ese intermediario también añade infraestructura que alguien debe operar.</p>
-        <p class="takeaway"><strong>Qué enseña:</strong> los equipos pueden necesitar más visibilidad sobre el uso de sus modelos, especialmente cuando sus agentes acceden a herramientas. La solución adecuada depende de cuánto control se necesite y de quién pueda mantenerla.</p>
-      </section>
-
-      <section class="story" data-category="Operaciones de IA" data-image="https://storage.ghost.io/c/06/e5/06e5d12b-0328-469d-a0d0-3a0f0ba34c46/content/images/size/w1200/2026/10/Traditional-tattoo-art-print-from-a-bird---s-eye-view--depicting-pooled-OpenAI-subscriptions-as-a-collaborative-network-overcoming-regional-inference-limits.-Interwoven-streams-of-glowing-data-form-a-swirling-ornamental-tapestry--with-each-.jpg" data-image-alt="Ilustración editorial de Geoffrey Huntley sobre agrupar suscripciones y enrutar solicitudes de IA entre regiones.">
-        <h3>Un conjunto de herramientas para gestionar límites, capacidad y datos enviados a modelos</h3>
-        <p class="story-meta">17 de octubre de 2026 · <a href="https://ghuntley.com/underclass/" target="_blank" rel="noopener noreferrer">Artículo original de Geoffrey Huntley</a></p>
-        <p>Huntley describe tres proyectos propios: Underclass agrupa varias suscripciones de ChatGPT y gestiona sus límites; Preflight actúa como intermediario local que busca y elimina secretos antes de enviar solicitudes a un modelo; y GeoClass, un prototipo experimental, intenta redirigir peticiones entre regiones cuando hay errores de capacidad. El autor dice que aún no sabe si el enrutamiento geográfico resolverá sus problemas, así que esa parte es una prueba en curso, no un resultado demostrado.</p>
-        <p class="takeaway"><strong>Qué enseña:</strong> cuando los agentes dependen de servicios externos, su funcionamiento también puede verse afectado por cuotas, capacidad y privacidad. Las herramientas intermedias pueden ayudar a gestionar esos problemas, pero añaden componentes que hay que configurar y mantener.</p>
-      </section>
-
-      <section class="story" data-category="Agentes de IA" data-image="https://storage.ghost.io/c/06/e5/06e5d12b-0328-469d-a0d0-3a0f0ba34c46/content/images/size/w1200/2026/10/Symbolic-traditional-tattoo-art-print-on-a-white-background--a-solitary-figure-hunched-over-an-old-computer--soft-screen-light-revealing-a-tired-expression-and-worn-keyboard.-Dreamy-hazy-brushwork--natural-earth-tones-of-brown-and-beige--mu.jpg" data-image-alt="Ilustración editorial de Geoffrey Huntley sobre el trabajo de programación con agentes de IA.">
-        <h3>En el desarrollo con agentes, el reto pasa a ser definir y verificar el trabajo</h3>
-        <p class="story-meta">13 de octubre de 2026 · <a href="https://ghuntley.com/agency/" target="_blank" rel="noopener noreferrer">Artículo original de Geoffrey Huntley</a></p>
-        <p>Al resumir una conversación sobre programación con agentes, Huntley sostiene que generar código ya no es el principal cuello de botella en muchos de sus proyectos. Destaca otras tareas: tener una idea clara del resultado, comprobar que la implementación está completa y poner el sistema a prueba. El artículo recoge su experiencia y opiniones sobre el futuro del desarrollo, no una medición independiente de productividad ni una predicción segura sobre todos los equipos.</p>
-        <p class="takeaway"><strong>Qué enseña:</strong> delegar la escritura de código no elimina el trabajo de ingeniería. Hace más importante especificar qué se quiere construir y comprobar con pruebas que el resultado funciona y está completo.</p>
-      </section>
-
-      <aside class="conclusion" aria-label="Conclusión del informe">
-        <h3>Conclusión del informe</h3>
-        <p>Las piezas anteriores respaldan que operar agentes exige diseñar su trabajo, verificar resultados y gestionar accesos y capacidad. La pieza sobre modelos locales añade un asunto distinto: el equilibrio entre compresión, memoria y calidad al ejecutar un modelo local. La experiencia de Huntley añade el mantenimiento de parches temporales, sin demostrar todavía su retirada automática. No hay una única conclusión técnica común demostrada por las siete piezas. Como criterio práctico de síntesis, conviene evaluar cada propuesta con tareas reales y medir sus recursos; ni una opinión, ni un prototipo, ni la coincidencia de tokens garantizan por sí solos un resultado útil.</p>
-      </aside>
-    </article>
   </section>
   </div>
 
